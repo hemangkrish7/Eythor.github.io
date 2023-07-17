@@ -1,9 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
+import "tachyons";
 
 export const LoginWindow = () => {
+  const [isForgotPasswordClicked, setIsForgotPasswordClicked] = useState(false);
+  const [isForgotPasswordRed, setIsForgotPasswordRed] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState("English");
+
+  const handleForgotPasswordClick = () => {
+    setIsForgotPasswordClicked(true);
+    setIsForgotPasswordRed(true);
+
+    setTimeout(() => {
+      setIsForgotPasswordRed(false);
+    }, 100); // Set the delay time in milliseconds (1 second = 1000 milliseconds)
+  };
+
+  const [isSignInClicked, setIsSignInClicked] = useState(false);
+
+  const handleSignInClick = () => {
+    setIsSignInClicked(true);
+    setTimeout(() => {
+      setIsSignInClicked(false);
+    }, 500);
+  };
+  const handleLanguageChange = (language) => {
+    setSelectedLanguage(language);
+  };
+  const handleLogout = () => {
+    window.close(); // Close the current tab or window
+  };
+
   return (
-    <div className="login-window">
+    <div className={`login-window ${isSignInClicked ? "signin-expanded" : ""}`}>
+    <div className={`overlap ${isSignInClicked ? "expanded" : ""}`}>
       <div className="div">
         <div className="zoom">
           <div className="group">
@@ -18,9 +48,42 @@ export const LoginWindow = () => {
           </div>
         </div>
         <div className="overlap">
-          <img className="language" alt="Language" src="/img/language.png" />
-          <img className="logout" alt="Logout" src="/img/logout.png" />
-          <div className="frame">
+        <div className="language-selector">
+                <div className="language" onClick={() => handleLanguageChange("English")}>
+                  <img className="language-icon" src="/img/language.png" alt="Language" />
+                 
+                  <div className="language-options">
+                    <div
+                      className={`language-option ${selectedLanguage === "English" ? "selected" : ""}`}
+                      onClick={() => handleLanguageChange("English")}
+                    >
+                      <img src="/img/english-flag.png" alt="English Flag" />
+                      English
+                    </div>
+                    <div
+                      className={`language-option ${selectedLanguage === "Arabic" ? "selected" : ""}`}
+                      onClick={() => handleLanguageChange("Arabic")}
+                    >
+                      <img src="/img/arabic-flag.png" alt="Arabic Flag" />
+                      Arabic
+                    </div>
+                  </div>
+                  {selectedLanguage === "Arabic" && <div className="shadow" />}
+                </div>
+              </div>
+              <div className="text-wrapper-5" onClick={handleForgotPasswordClick}>
+                {isForgotPasswordClicked ? (
+                  <span className={isForgotPasswordRed ? "highlighted-text-red" : "highlighted-text"}>
+                    Forgot Password ?
+                  </span>
+                ) : (
+                  "Forgot Password ?"
+                )}
+              </div>
+
+              <img className="logout" alt="Logout" src="/img/logout.png" onClick={handleLogout} />
+              {/* Rest of your code */}
+          <div className="frame flex justify-center items-center">
             <div className="group-3">
               <img className="dfd" alt="Dfd" src="/img/d259f62d-8138-4973-a792-a77219bcd587.png" />
               <img className="logo-copy" alt="Logo copy" src="/img/logo-copy-3.png" />
@@ -34,11 +97,13 @@ export const LoginWindow = () => {
                   
                 />
                 </div>
-            <div className="overlap-group">
-              <div className="text-wrapper">Enter</div>
-            </div>
-            <div className="text-wrapper-2">Username</div>
-            <div className="text-wrapper-3">Administration Login</div>
+                <div className={`overlap-group ${isSignInClicked ? "expanded" : ""}`}onClick={handleSignInClick}>
+                <div className={`text-wrapper ${isSignInClicked ? "expanded" : ""}`} onClick={handleSignInClick}>
+                  Sign in
+                </div>
+              </div>
+            <div className="text-wrapper-2 ">Username</div>
+            <div className="text-wrapper-3 b">Administration Login</div>
             <div className="frame-3" > 
             <input
              className="pass"
@@ -49,10 +114,19 @@ export const LoginWindow = () => {
                 />
                 </div>
             <div className="text-wrapper-4">Password</div>
-            <div className="text-wrapper-5">Forgot Password ?</div>
+            <div className="text-wrapper-5" onClick={handleForgotPasswordClick}>
+              {isForgotPasswordClicked ? (
+                <span className={isForgotPasswordRed ? "highlighted-text-blue" : "highlighted-text"}>
+                  Forgot Password ?
+                </span>
+              ) : (
+                "Forgot Password ?"
+              )}
+            </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

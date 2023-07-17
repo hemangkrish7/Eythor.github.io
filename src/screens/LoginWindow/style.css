@@ -268,4 +268,102 @@
   top: 333px;
   white-space: nowrap;
   width: 102px;
+  cursor: pointer;
 }
+.text-wrapper-5 .highlighted-text {
+  /* Add styles to highlight the text when clicked */
+  /* For example, you can change the text color or add a background color */
+  color: rgb(206, 7, 7);
+  font-weight: bold;
+  
+}
+
+.signin-expanded .overlap {
+  /* Add transition properties to animate the expansion */
+  transition: width 300ms, height 300ms;
+}
+
+.expanded {
+  /* Add transition properties to animate the expansion */
+  transition: width 300ms, height 300ms;
+}
+
+.overlap-group {
+  /* Add transition properties to animate the expansion */
+  transition: transform 300ms;
+  transform: translateY(0);
+}
+
+.expanded .overlap-group {
+  /* Adjust the transform property to animate the expansion */
+  transform: translateY(-50%);
+}
+
+.text-wrapper {
+  /* Add transition properties to animate the expansion */
+  transition: font-size 300ms;
+}
+
+.expanded .text-wrapper {
+  /* Adjust the font-size property to animate the expansion */
+  font-size: 20px;
+}
+.language-selector {
+  position: relative;
+}
+
+.language-selector .language {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.language-selector .language span {
+  margin-right: 8px;
+}
+
+.language-selector .language img {
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+}
+
+.language-selector .language-options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.language-selector:hover .language-options {
+  display: block;
+}
+
+.language-selector .language-option {
+  cursor: pointer;
+  padding: 4px 8px;
+  margin-bottom: 4px;
+  border-radius: 4px;
+}
+
+.language-selector .language-option:hover {
+  background-color: #f0f0f0;
+}
+
+.language-selector .language-option.selected {
+  background-color: #f0f0f0;
+}
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Adjust the shadow color and opacity as needed */
+  pointer-events: none; /* Prevent the shadow from capturing mouse events */
+}
+
