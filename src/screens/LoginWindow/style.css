@@ -126,7 +126,7 @@
   backdrop-filter: blur(4px) brightness(100%);
   background-color: #ffffff;
   border-radius: 30px;
-  height: 456px;
+  height: 603px;
   left: 454px;
   position: absolute;
   top: 263px;
@@ -200,6 +200,19 @@
   width: 36px;
 
 }
+.recaptcha-container {
+  display: flex;
+  justify-content: flex-end;
+  
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.recaptcha-container > div {
+  transform: scale(0.9);
+}
+
 
 .login-window .text-wrapper-2 {
   color: #4c4a4a;
@@ -292,7 +305,11 @@
   /* Add transition properties to animate the expansion */
   transition: transform 300ms;
   transform: translateY(0);
+  bottom :10px
+
+
 }
+
 
 .expanded .overlap-group {
   /* Adjust the transform property to animate the expansion */
@@ -366,4 +383,21 @@
   background-color: rgba(0, 0, 0, 0.3); /* Adjust the shadow color and opacity as needed */
   pointer-events: none; /* Prevent the shadow from capturing mouse events */
 }
+/* style.css */
+
+/* Add your existing styles here */
+
+.captcha-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.captcha-error {
+  color: red;
+  margin-top: 5px;
+}
+
+/* Add additional styles for the captcha box */
+
 

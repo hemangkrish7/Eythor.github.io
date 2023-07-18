@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import "./style.css";
 import "tachyons";
+import ReCAPTCHA from "react-google-recaptcha";
+
 
 export const LoginWindow = () => {
   const [isForgotPasswordClicked, setIsForgotPasswordClicked] = useState(false);
   const [isForgotPasswordRed, setIsForgotPasswordRed] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState("English");
-
+  
+  const handleCaptchaChange = (response) => {
+    console.log("Captcha value:", response);
+    // You can perform additional logic here based on the captcha response
+  };
+  
   const handleForgotPasswordClick = () => {
     setIsForgotPasswordClicked(true);
     setIsForgotPasswordRed(true);
@@ -97,11 +104,8 @@ export const LoginWindow = () => {
                   
                 />
                 </div>
-                <div className={`overlap-group ${isSignInClicked ? "expanded" : ""}`}onClick={handleSignInClick}>
-                <div className={`text-wrapper ${isSignInClicked ? "expanded" : ""}`} onClick={handleSignInClick}>
-                  Sign in
-                </div>
-              </div>
+                
+                
             <div className="text-wrapper-2 ">Username</div>
             <div className="text-wrapper-3 b">Administration Login</div>
             <div className="frame-3" > 
@@ -113,8 +117,15 @@ export const LoginWindow = () => {
                   
                 />
                 </div>
+              
+
+            
             <div className="text-wrapper-4">Password</div>
+          
+          
+              
             <div className="text-wrapper-5" onClick={handleForgotPasswordClick}>
+            
               {isForgotPasswordClicked ? (
                 <span className={isForgotPasswordRed ? "highlighted-text-blue" : "highlighted-text"}>
                   Forgot Password ?
@@ -122,10 +133,27 @@ export const LoginWindow = () => {
               ) : (
                 "Forgot Password ?"
               )}
+              <div className="recaptcha-container">
+                <ReCAPTCHA
+                  sitekey="6LfzvC4nAAAAAIWqA7zAAJ8qNOMzDtJ8bVy2deL_"
+                  size="compact"
+                  style={{ transform: 'scale(0.9)' }}
+                  onChange={handleCaptchaChange}
+                />
+              </div>
             </div>
+            
+           
+              <div className={`overlap-group ${isSignInClicked ? "expanded" : ""}`}onClick={handleSignInClick}>
+                <div className={`text-wrapper ${isSignInClicked ? "expanded" : ""}`} onClick={handleSignInClick}>
+                  Sign in
+                </div>
+              </div>
+            
           </div>
         </div>
       </div>
+      
     </div>
     </div>
   );
