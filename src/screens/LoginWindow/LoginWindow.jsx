@@ -8,7 +8,7 @@ export const LoginWindow = () => {
   const [isForgotPasswordClicked, setIsForgotPasswordClicked] = useState(false);
   const [isForgotPasswordRed, setIsForgotPasswordRed] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState("English");
-  
+ // Hook to access the history object
   const handleCaptchaChange = (response) => {
     console.log("Captcha value:", response);
     // You can perform additional logic here based on the captcha response
@@ -27,8 +27,11 @@ export const LoginWindow = () => {
 
   const handleSignInClick = () => {
     setIsSignInClicked(true);
+    window.location.href ="http://localhost:63662/";
     setTimeout(() => {
       setIsSignInClicked(false);
+      // After successful sign-in, navigate to the homepage
+    
     }, 500);
   };
   const handleLanguageChange = (language) => {

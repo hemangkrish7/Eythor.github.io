@@ -5,10 +5,10 @@ Please share your feedback here: https://form.asana.com/?k=uvp-HPgd3_hyoXRBw1IcN
 
 import React from "react";
 
-export const ContentAdd24Px = ({ className }) => {
+export const Icon8 = ({ className }) => {
   return (
     <svg
-      className={`content-add-24px ${className}`}
+      className={`icon-8 ${className}`}
       fill="none"
       height="24"
       viewBox="0 0 24 24"
