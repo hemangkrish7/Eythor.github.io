@@ -1,7 +1,7 @@
 import React from "react";
 import { ContentAdd } from "../../components/ContentAdd";
-import { ElementStandard } from "../../components/ElementStandard";
-import { Mop } from "../../components/Mop";
+import { ElementStandard } from "../../screens/ElementStandard";
+import { Mop } from "../../screens/Mop";
 import { NavigationMenu } from "../NavigationMenu";
 import "./style.css";
 
